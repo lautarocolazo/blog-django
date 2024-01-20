@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+
+    <div class="mx-auto max-w-lg text-center">
+      <h2 class="text-3xl font-bold sm:text-4xl">Start reading here 👇</h2>
+
+      <p class="my-4 text-gray-700">Learn new things every day</p>
+    </div>
+
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+  {% for post in posts %}
+
+<article
+  class="rounded-lg border border-gray-300 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6"
+>
+  <p class="block text-xs text-gray-500"> {{ post.created_at }}</p>
+  <a href="#">
+      <h3 class="mt-0.5 text-lg font-medium text-gray-900"> {{ post.title }} </h3>
+  </a>
+
+  <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">{{ post.content }}</p>
+
+  <p class="block text-sm text-gray-900"> Author: <span class="font-bold">{{ post.author }}</span></p>
+
+  <a href="{% url 'post_detail' post.id %}" class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+    Read the article
+    <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
+      &rarr;
+    </span>
+  </a>
+</article>
+
+  {% endfor %}
+</div>
+  </div>
+</section>
+
+{% else %}
+<div class="grid h-screen place-content-center bg-white px-4">
+  <div class="text-center">
+    <h1 class="text-9xl font-black text-gray-200">You can't access!</h1>
+
+    <p class="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">Uh-oh!</p>
+
+    <p class="mt-4 text-gray-500">You need to sign in to see the content!</p>
+
+    <a
+        href="{% url 'login' %}"
+      class="mt-6 inline-block rounded bg-blue-600 px-5 py-3 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring"
+    >Sign in</a>
+  </div>
+</div>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
