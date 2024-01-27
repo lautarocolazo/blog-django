@@ -12,7 +12,7 @@ Delete post: {{ post.title }}
         <p>Are you sure you want to delete "{{ post.title }}"?</p>
         <form method="post" action="{% url 'delete_post' post.id %}">
             {% csrf_token %}
-            <button type="submit" class="rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700 dark:hover:bg-red-500"
+            <button type="submit" class="rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition mt-2 hover:bg-red-700 dark:hover:bg-red-500"
             >
             Delete
             </button>
