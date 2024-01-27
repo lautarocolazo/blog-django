@@ -15,7 +15,7 @@
 
     <div class="flex flex-1 items-center justify-end md:justify-between">
       <nav aria-label="Global" class="hidden md:block">
-        <ul class="flex items-center gap-6 text-sm">
+        <ul class="flex items-center gap-6 text-sm md:flex md:items-center">
           <li>
             <a
               class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -86,6 +86,15 @@
 
             </h1>
 
+            {% if user.is_superuser %}
+          <a
+            class="block rounded-md bg-green-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-green-700 dark:hover:bg-green-500"
+            href="{% url 'add_post' %}"
+          >
+          + new post
+          </a>
+            {% endif %}
+
           <a
             class="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700 dark:hover:bg-red-500"
             href="{% url 'logout' %}"
@@ -111,6 +120,7 @@
         </div>
 
         <button
+          id="toggleMenuBtn"
           class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75 md:hidden"
         >
           <span class="sr-only">Toggle menu</span>
@@ -132,6 +142,23 @@
     {% block content %}
     {% endblock %}
   </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the button and the main navigation element
+    var toggleMenuBtn = document.getElementById("toggleMenuBtn");
+    var navList = document.querySelector("header nav ul");
+
+    // Add a click event listener to the button
+    toggleMenuBtn.addEventListener("click", function () {
+      console.log("Button clicked!"); // Check if the button click event is triggered
+
+      // Toggle the visibility of the navigation
+      navList.classList.toggle("hidden");
+    });
+  });
+</script>
+
 </body>
 <footer class="bg-gray-50 dark:bg-gray-900">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">

@@ -9,7 +9,7 @@ class CreateUserForm(UserCreationForm):
         required=True,
         widget=forms.TextInput(
             attrs={
-                "class": "mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                "class": "w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             }
         ),
     )
@@ -17,7 +17,7 @@ class CreateUserForm(UserCreationForm):
         max_length=254,
         widget=forms.EmailInput(
             attrs={
-                "class": "mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                "class": "w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             }
         ),
     )
@@ -25,7 +25,7 @@ class CreateUserForm(UserCreationForm):
         label="Password",
         widget=forms.PasswordInput(
             attrs={
-                "class": "mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                "class": "w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             }
         ),
     )
@@ -33,7 +33,7 @@ class CreateUserForm(UserCreationForm):
         label="Password Confirmation",
         widget=forms.PasswordInput(
             attrs={
-                "class": "mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                "class": "w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             }
         ),
     )

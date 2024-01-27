@@ -6,6 +6,7 @@ def home_page(request):
     """
     Rendering home page
     """
+
     posts = BlogPost.objects.all()
     comments = Comment.objects.all()
 
