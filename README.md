@@ -8,7 +8,7 @@ As mentioned above, this is a full-stack blog website with authentication. It ha
 As an admin user you will be able to create new blog posts, edit any existing blog posts, and delete them.
 As a logged in user, independently of your role, you will be able to post comments in each blog post, and delete them if desired.
 
-# To run the app, execute the following steps:
+# To run the app execute the following steps:
 
 My app has a `requirements.txt` file, so , if you don't want to install the dependencies locally, you can create a virtual environment first.
 I am a linux user, and there are many different tools that you can use to accomplish the exact same thing, so I will indicate what works for me with the tool that I use. The steps will work for Ubuntu based distros.
@@ -17,6 +17,12 @@ If you are running a different OS, Google how to create a virtual environment in
 ## Previous requirements:
 
 You will need python 3+ and pip installed in your system
+
+## Clone the repo
+
+```bash
+git clone git@github.com:lautarocolazo/blog-django.git
+```
 
 ## Install virtualenv if you don't have it
 
@@ -64,7 +70,7 @@ Or:
 python3 manage.py makemigrations && python3 manage.py migrate
 ```
 
-## Running starting the server
+## Running the server
 
 You can start the Django server by running the following command line:
 
